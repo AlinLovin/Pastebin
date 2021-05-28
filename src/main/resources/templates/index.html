@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastebin</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        body {
+            background-color: lightgrey;
+        }
+        table {
+            border-collapse: collapse;
+            background-color: darkslategrey;
+            color: white;
+        }
+        a:link {
+            text-decoration: none;
+        }
+        a {
+            color: white;
+        }
+        td, th {
+            border: 1px solid;
+            text-align: left;
+            padding: 5px;
+        }
+        button {
+            margin: 5px;
+            background-color: forestgreen;
+            padding: 2px 2px;
+        }
+        tr:nth-child(even) {
+            background-color: forestgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pastebin</h1>
+    <button><a th:href="@{'/paste/create'}">Add New Paste</a></button>
+    <table>
+        <tr>
+            <th width="300px">Pastebin title</th>
+            <th width="400px">Pastebin text</th>
+            <th width="80px">State</th>
+        </tr>
+        <tr th:each="pastebin : ${listPastebin}">
+            <td th:text="${pastebin.title}">Pastebin title</td>
+            <td th:text="${pastebin.paste_text}">Pastebin text</td>
+            <td>
+                <a th:href="@{'/paste/create/edit/' + ${pastebin.id}}">Edit  |</a>
+                <a th:href="@{'/paste/delete/' + ${pastebin.id}}">  Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

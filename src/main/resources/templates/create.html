@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Pastebin</title>
+  <style>
+    body {
+      background-color: lightgrey;
+    }
+    button {
+      background-color: forestgreen;
+      color: white;
+    }
+    a:link {
+      text-decoration: none;
+    }
+    a:active {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<h1>Create new Pastebin</h1>
+<form action="#" th:action="@{/save}" th:object="${pastebin}" method="post">
+
+  <input type="hidden" th:field="*{id}" />
+  <h3>Pastebin title</h3>
+  <input type="text" th:field="*{title}" placeholder="Title" style="width:400px"/><br>
+
+  <h3>Pastebin text</h3>
+  <textarea th:field="*{paste_text}" placeholder="Text" rows="6" cols="100"></textarea><br>
+
+  <button type="submit">Save</button>
+
+</form>
+</body>
+</html>
