@@ -21,18 +21,18 @@
   </style>
 </head>
 <body>
-      <h1>Create new Pastebin</h1>
-      <form action="#" th:action="@{/save}" th:object="${pastebin}" method="post">
+  <h1>Create new Pastebin</h1>
+  <form action="#" th:action="@{/save}" th:object="${pastebin}" method="post">
 
-        <input type="hidden" th:field="*{id}" />
-        <h3>Pastebin title</h3>
-        <input type="text" th:field="*{title}" placeholder="Title" style="width:400px"/><br>
+    <input type="hidden" th:field="*{id}" />
+    <h3>Pastebin title</h3>
+    <input type="text" th:field="*{title}" placeholder="Title" style="width:400px"/><br>
 
-        <h3>Pastebin text</h3>
-        <textarea th:field="*{paste_text}" placeholder="Text" rows="6" cols="100"></textarea><br>
+    <h3>Pastebin text</h3>
+    <textarea th:field="*{paste_text}" placeholder="Text" rows="6" cols="100"></textarea><br>
 
-        <button type="submit">Save</button>
+    <button type="submit">Save</button>
 
-      </form>
+  </form>
 </body>
 </html>
