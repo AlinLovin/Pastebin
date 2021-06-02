@@ -34,7 +34,7 @@ public class PastebinController {
     }
 
     @RequestMapping("paste/create/edit/{id}")
-    public ModelAndView showEditStudentPage(@PathVariable(name = "id") int id) {
+    public ModelAndView showEditPastebinPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("create");
         Pastebin pas = service.get(id);
         mav.addObject("pastebin", pas);
@@ -42,7 +42,7 @@ public class PastebinController {
     }
 
     @RequestMapping("/paste/delete/{id}")
-    public String deleteStudent(@PathVariable(name = "id") int id) {
+    public String deletePastebin(@PathVariable(name = "id") int id) {
         service.delete(id);
         return "redirect:/paste ";
     }
